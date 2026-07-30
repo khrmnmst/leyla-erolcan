@@ -925,8 +925,8 @@ main.on .amp{opacity:1;transform:scale(1);transition:opacity 1s ease .95s, trans
       </p>
       <div class="stamp reveal d3">22 Ağustos 2026 &nbsp;·&nbsp; Ereğli, Konya</div>
       <p class="credit">
-        Müzik: <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100716"
-                  target="_blank" rel="noopener">Porch Swing Days</a>
+        Müzik: <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1500084"
+                  target="_blank" rel="noopener">Fresh Air</a>
         — Kevin MacLeod (incompetech.com) ·
         <a href="https://creativecommons.org/licenses/by/4.0/"
            target="_blank" rel="noopener">CC BY 4.0</a>
@@ -1422,7 +1422,11 @@ setTimeout(function(){
     var btn = $('#musicBtn');
     btn.classList.add('playing');
     btn.setAttribute('aria-pressed', 'true');
-    if(muzikVar) btn.classList.add('show');
+    /* Ses fiilen çalmaya başladıysa dosya var demektir; butonu koşulsuz göster.
+       (Artık dosyayı önceden indirmediğimiz için 'canplay' bayrağını beklemek
+       butonun geç görünmesine yol açabilirdi.) */
+    muzikVar = true;
+    btn.classList.add('show');
     sesiTasi(MZ.hedefSes, MZ.acilisSure);
     ipucuGoster();
   }
@@ -1476,12 +1480,13 @@ setTimeout(function(){
     });
     ses.addEventListener('error', function(){ /* dosya yok — buton gizli kalır */ });
 
-    /* Müziği HEMEN indirmiyoruz. Zayıf mobil hatta 0,9 MB'lık ses dosyası
-       sayfanın kendi yüklenmesiyle yarışıyor ve davetiye açılmıyor gibi
-       görünüyor. Önce sayfa, yazı tipleri ve fotoğraf insin; müzik 2,5
-       saniye sonra arka planda yüklensin — zarf ekranında beklenirken
-       zaten hazır oluyor. */
-    setTimeout(function(){ try{ ses.load(); }catch(e){} }, 2500);
+    /* Müzik dosyasına HİÇ dokunmuyoruz — indirmesini zarfın açılması başlatıyor
+       (muzigiAc içindeki play() zaten akışı başlatır).
+       Eskiden sayfa açılır açılmaz 2,5 sn sonra kendiliğinden iniyordu; bu,
+       davetiyeye şöyle bir bakıp kapatan misafire de birkaç megabaytlık fatura
+       çıkarıyordu. Artık yalnızca zarfı açan, yani müziği gerçekten duyacak
+       olan indiriyor. Zayıf hatta sesin başlaması bir saniye gecikse bile
+       3 saniyelik yumuşak giriş bunu zaten örtüyor. */
 
     btn.addEventListener('click', function(){
       if(ses.paused) muzigiAc(true); else muzigiKapat(true);

@@ -1,0 +1,7 @@
+[2026-07-30T07:34:03.306Z] GET http://127.0.0.1:8912/?v=15482 → 200 (9ms, 68255B)
+[2026-07-30T07:34:03.323Z] GET http://127.0.0.1:8912/fonts/Inter-normal.woff2 → 200 (67ms, 39684B)
+[2026-07-30T07:34:03.324Z] GET http://127.0.0.1:8912/fonts/CormorantGaramond-normal.woff2 → 200 (66ms, 19808B)
+[2026-07-30T07:34:03.324Z] GET http://127.0.0.1:8912/foto.jpg → 200 (6ms, 179594B)
+[2026-07-30T07:34:03.389Z] GET http://127.0.0.1:8912/foto-bulanik.jpg → 200 (?ms, 10712B)
+[2026-07-30T07:34:03.389Z] GET http://127.0.0.1:8912/fonts/CormorantGaramond-italic.woff2 → 200 (27ms, 20732B)
+[2026-07-30T07:34:08.268Z] GET http://127.0.0.1:8912/muzik.mp3 → 200 (5ms, ?B)
