@@ -1,0 +1,19 @@
+# Netlify önbellek kuralları.
+# Amaç: davetiyeyi ikinci kez açan misafir hiçbir şeyi yeniden indirmesin.
+# Yazı tipleri, fotoğraflar ve müzik 30 gün tarayıcıda kalır (düğüne kadar yeter).
+# index.html önbelleğe alınmaz: yeni sürüm attığınızda herkes anında görür.
+
+/fonts/*
+  Cache-Control: public, max-age=2592000
+
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/muzik.mp3
+  Cache-Control: public, max-age=2592000
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
