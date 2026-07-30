@@ -1,0 +1,6 @@
+# gstack tarayıcı aracının yerel durum dosyaları — depoya girmez
+.gstack/
+
+# geçici QA çıktıları
+_q/
+_qa/
